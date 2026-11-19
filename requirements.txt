@@ -1,0 +1,1 @@
+# No runtime dependencies are approved or required by the ETAPA_00 scaffold.
