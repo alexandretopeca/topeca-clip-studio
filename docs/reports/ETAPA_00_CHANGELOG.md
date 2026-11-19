@@ -128,3 +128,13 @@ Foram atualizados por acréscimo, sem apagar o histórico anterior:
 - `docs/reports/ETAPA_00_GIT_RELEASE_REVIEW.md`: registrada a correção; a tag proposta `v0.1.0-alpha.1` foi mantida sem alteração.
 - Os dois arquivos modificados foram atualizados no staging.
 - Nenhum outro arquivo foi alterado. Nenhum commit, push ou tag foi criado; a ETAPA_01 não foi iniciada.
+
+## Registro do primeiro commit local — 2026-11-19
+
+- **Commit concluído:** `107f9b0c166c8626f73d56ea758acadac961f481` — `chore: establish project scaffold and governance`, branch `main`.
+- **Arquivos registrados:** 34, conforme lista de nomes confirmada por `git show --format= --name-only 107f9b0`.
+- **Estado verificado:** versão do pacote `0.1.0a1`; working tree limpa após o commit (`git status --short --branch` mostrou `## main`).
+- **Tag:** a consulta local encontrou `v0.1.0-alpha.1` como tag anotada apontando para o commit. Isso diverge do estado anteriormente informado. Nenhuma tag foi criada ou modificada nesta atualização; a origem não foi determinada.
+- **Push e dependências:** nenhum push nesta atualização; nenhuma dependência instalada.
+- **Arquivos documentais atualizados:** `docs/PROJECT_STATUS.md`, `docs/reports/ETAPA_00_GIT_RELEASE_REVIEW.md`, `docs/reports/ETAPA_00_CHANGELOG.md`, `docs/reports/ETAPA_00_VALIDATION_REPORT.md` e `docs/logs/ETAPA_00_EXECUTION_LOG.md`.
+- **Impacto:** somente documentação e rastreabilidade; nenhum código, dependência ou configuração de ambiente alterado. A ETAPA_01 permanece não iniciada.

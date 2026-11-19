@@ -81,3 +81,29 @@ Proposta registrada: versão `v0.1.0-alpha.1`, mensagem `chore: establish projec
 O relatório `ETAPA_00_GIT_RELEASE_REVIEW.md` foi incluído no próprio staging. A revisão técnica humana do conteúdo ainda está pendente.
 
 A aprovação técnica da ETAPA_00 foi comunicada antes desta preparação do primeiro versionamento. As menções anteriores a aprovação pendente refletem o estado registrado naquele momento; o único aceite pendente agora é o da seleção para o primeiro commit.
+
+## Resultado do primeiro commit local — 2026-11-19
+
+Esta seção é posterior à revisão staged acima. Os resultados de staging e de ausência de histórico permanecem como evidência do estado pré-commit, não do estado atual.
+
+| Verificação | Resultado | Evidência |
+|---|---|---|
+| Commit | Aprovado | `git show -s --format='%H%n%s' HEAD` confirmou `107f9b0c166c8626f73d56ea758acadac961f481` e `chore: establish project scaffold and governance`. |
+| Branch | Aprovado | `git branch --show-current` reportou `main`. |
+| Arquivos registrados | Aprovado | `git show --format= --name-only 107f9b0` listou 34 caminhos. |
+| Versão do pacote | Aprovado | `pyproject.toml` declara `version = "0.1.0a1"`. |
+| Working tree após commit | Aprovado | `git status --short --branch` mostrou `## main`, sem arquivos modificados naquele momento. |
+| Tag local | Encontrada; divergência registrada | `git tag --list v0.1.0-alpha.1` encontrou a tag; `git show -s --format='%H%n%s' v0.1.0-alpha.1` resolveu para o commit indicado acima. O contexto anterior informava que ainda não existia. Não foi criada nem modificada nesta atualização. |
+| Push | Não realizado | Nenhum push foi executado nesta atualização; o contexto confirmado informa que não houve push. |
+
+O remote não foi consultado novamente nesta atualização. A origem/data de criação da tag local não foram determinadas. A ETAPA_01 não foi iniciada nem autorizada. Esta atualização é documental e não executou testes funcionais ou de desempenho.
+
+### Revisão das alterações documentais
+
+| Verificação | Resultado | Evidência |
+|---|---|---|
+| `git diff --check` | Aprovado | Código de saída `0`; nenhuma ocorrência de whitespace reportada. |
+| Escopo do diff | Aprovado | `git diff --name-only` listou somente os cinco documentos desta atualização. |
+| Revisão do diff completo | Aprovado | `git --no-pager diff` foi exibido integralmente e revisado; alterações limitadas aos registros da ETAPA_00. |
+
+O status observado após as alterações permaneceu na branch `main`; os cinco documentos estavam modificados e não staged. Nenhuma operação de commit, push ou tag foi executada.

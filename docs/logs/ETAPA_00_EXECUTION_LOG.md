@@ -248,3 +248,31 @@ Registro cronológico da validação inicial do ambiente. Horários locais do si
 - **Resultado observado:** `git diff --cached --check` passou. A auditoria de caminhos não encontrou vídeo/áudio, pesos, segredos, `.venv/` nem diagnóstico do equipamento; `assets/` contém apenas `.gitkeep`. O diff foi revisado por seções e os documentos de revisão/status/relatórios foram lidos diretamente. `git ls-remote origin` retornou código 0 sem refs.
 - **Erros/advertências:** uma tentativa anterior de `git diff --cached --check` detectou quatro espaços finais; foram corrigidos com `<br>` e a verificação posterior passou. Há divergência entre `pyproject.toml` (`0.1.0`) e a proposta de tag (`v0.1.0-alpha.1`).
 - **Decisão:** manter os 34 arquivos staged para revisão técnica humana; não criar commit, tag ou push. Revalidar o índice após registrar esta entrada.
+
+## Resultado do primeiro commit local — 2026-11-19
+
+### 19:00 — Confirmação do commit e atualização documental
+
+- **Atividade:** confirmar o commit local informado e registrar seu resultado nos documentos de status, revisão Git, changelog, validação e execução.
+- **Comandos utilizados:** `git show -s --format='%H%n%s' HEAD`; `git show --format= --name-only 107f9b0`; `git branch --show-current`; `git status --short --branch`; `Select-String -Path pyproject.toml -Pattern '^version\s*='`; `git tag --list v0.1.0-alpha.1`; `git show-ref --tags`; `git show -s --format='%H%n%s' v0.1.0-alpha.1`.
+- **Arquivos registrados no commit:** 34:
+  - Raiz: `.gitignore`, `README.md`, `pyproject.toml`, `requirements.txt`.
+  - Documentação: `docs/ARCHITECTURE.md`, `docs/DATA_RETENTION_POLICY.md`, `docs/DEVELOPMENT_ROADMAP.md`, `docs/HARDWARE_CONSTRAINTS.md`, `docs/PERFORMANCE_TESTING.md`, `docs/PROJECT_STATUS.md`, `docs/logs/ETAPA_00_EXECUTION_LOG.md`, `docs/reports/ETAPA_00_CHANGELOG.md`, `docs/reports/ETAPA_00_GIT_RELEASE_REVIEW.md`, `docs/reports/ETAPA_00_VALIDATION_REPORT.md`.
+  - Estrutura: `assets/icons/.gitkeep`, `assets/mascot/.gitkeep`, `assets/templates/.gitkeep`, `config/.gitkeep`, `models/.gitkeep`, `output/.gitkeep`, `projects/.gitkeep`, `scripts/.gitkeep`, `temp/.gitkeep`, `tests/.gitkeep`.
+  - Pacote: `src/topeca_clip_studio/.gitkeep`, `src/topeca_clip_studio/analysis/.gitkeep`, `src/topeca_clip_studio/core/.gitkeep`, `src/topeca_clip_studio/database/.gitkeep`, `src/topeca_clip_studio/editor/.gitkeep`, `src/topeca_clip_studio/mascot/.gitkeep`, `src/topeca_clip_studio/media/.gitkeep`, `src/topeca_clip_studio/templates/.gitkeep`, `src/topeca_clip_studio/ui/.gitkeep`, `src/topeca_clip_studio/workers/.gitkeep`.
+- **Arquivos modificados nesta atualização:** `docs/PROJECT_STATUS.md`, `docs/reports/ETAPA_00_GIT_RELEASE_REVIEW.md`, `docs/reports/ETAPA_00_CHANGELOG.md`, `docs/reports/ETAPA_00_VALIDATION_REPORT.md` e este log.
+- **Resultado observado:** `HEAD` é `107f9b0c166c8626f73d56ea758acadac961f481`, mensagem `chore: establish project scaffold and governance`; branch `main`; versão `0.1.0a1`; `git status --short --branch` mostrou `## main` antes das alterações documentais.
+- **Tag e advertência:** a consulta encontrou a tag anotada local `v0.1.0-alpha.1`, apontando para `107f9b0c166c8626f73d56ea758acadac961f481`. Isso contradiz a informação prévia de que ela ainda não existia. A divergência foi apresentada ao usuário, que autorizou registrar o estado observado. Nenhuma tag foi criada, alterada ou removida; origem/data não determinadas.
+- **Push e remoto:** nenhum push executado; o remote não foi consultado novamente nesta atividade.
+- **Erros/advertências:** nenhuma falha de comando observada; a divergência da tag é mantida explicitamente como advertência.
+- **Decisão:** preservar as seções pré-commit como histórico e identificar separadamente o estado atual pós-commit. Não iniciar a ETAPA_01 nem executar operações de versionamento.
+
+### 19:00 — Revisão final das alterações documentais
+
+- **Atividade:** validar whitespace, confirmar escopo e revisar o diff completo da atualização documental.
+- **Comandos utilizados:** `git diff --check`; `git status --short --branch`; `git diff --name-only`; `git --no-pager diff -- docs/PROJECT_STATUS.md docs/reports/ETAPA_00_GIT_RELEASE_REVIEW.md docs/reports/ETAPA_00_CHANGELOG.md docs/reports/ETAPA_00_VALIDATION_REPORT.md docs/logs/ETAPA_00_EXECUTION_LOG.md`.
+- **Arquivos criados:** nenhum.
+- **Arquivos modificados:** somente os cinco documentos listados acima; todos permanecem não staged.
+- **Resultado observado:** `git diff --check` terminou com código `0`; `git status --short --branch` mostrou a branch `main` e os cinco documentos modificados; `git diff --name-only` confirmou o mesmo escopo. O diff completo foi exibido e revisado.
+- **Erros/advertências:** nenhuma falha de validação; permanece registrada a divergência da tag local.
+- **Decisão:** encerrar a atualização documental sem commit, push, alteração de tag ou início da ETAPA_01; aguardar aprovação.

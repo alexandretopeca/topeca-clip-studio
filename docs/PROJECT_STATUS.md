@@ -1,14 +1,14 @@
 # Status do Projeto — Topeca Clip Studio
 
 **Atualizado em:** 2026-11-19<br>
-**Etapa atual:** Revisão do primeiro versionamento da ETAPA_00<br>
-**Situação da execução:** ETAPA_00 aprovada tecnicamente; 34 arquivos staged, verificações concluídas e revisão humana pendente antes de qualquer commit. Não avançar automaticamente.
+**Etapa atual:** Registro pós-commit da ETAPA_00<br>
+**Situação da execução:** ETAPA_00 aprovada tecnicamente; primeiro commit local concluído na branch `main` (`107f9b0`, 34 arquivos). O working tree estava limpo após o commit. Nenhum push foi realizado. A tag local `v0.1.0-alpha.1` foi encontrada e aponta para esse commit; isso diverge do estado anteriormente informado. Esta atualização não criou nem alterou a tag. Não avançar automaticamente.
 
 ## Etapas
 
 | Etapa | Situação |
 |---|---|
-| ETAPA_00 — Validação, estrutura, integração GitHub e governança | Aprovada tecnicamente; staging do primeiro marco em revisão |
+| ETAPA_00 — Validação, estrutura, integração GitHub e governança | Aprovada tecnicamente; primeiro commit local concluído |
 | ETAPA_01 | Não iniciada; aguarda autorização expressa |
 
 ## Critérios de aceite da ETAPA_00
@@ -27,14 +27,14 @@
 - [x] Relatório detalhado de hardware foi avaliado, preservado localmente e excluído do Git público.
 - [x] Git local iniciado em `main`; `origin` configurado para o repositório oficial.
 - [x] Repositório remoto verificado como vazio (sem refs/histórico no momento da consulta).
-- [x] Nenhum commit, push, fetch ou instalação de dependências foi realizado.
+- [x] Na validação inicial, nenhum commit, push, fetch ou instalação de dependências foi realizado; o primeiro commit local (`107f9b0`) foi realizado posteriormente.
 - [x] Apenas arquivos autorizados foram staged; `git diff --cached --check` passou e o diff completo foi revisado.
 - [x] `docs/PERFORMANCE_TESTING.md` documenta métricas e metodologia reproduzível sem executar benchmark pesado.
 - [x] `docs/DATA_RETENTION_POLICY.md` define classes, confirmações, preservação e auditoria sem implementar exclusões.
 - [x] Arquitetura e roadmap atualizados com as diretrizes permanentes.
 - [x] Logs, relatório de validação e changelog atualizados sem remover o histórico anterior.
 - [x] Aprovação técnica da ETAPA_00.
-- [ ] Aprovação humana do staging, da divergência de versão e da proposta de primeiro commit.
+- [x] Primeiro commit local do scaffold e da governança concluído após a revisão do primeiro versionamento.
 
 ## Problemas conhecidos e limitações
 
@@ -50,8 +50,9 @@
 - O estado remoto pode mudar após a consulta; nenhuma operação de escrita foi executada nele.
 - Nenhum benchmark de desempenho foi executado para o aplicativo; os testes de codec anteriores foram apenas testes curtos de disponibilidade.
 - Mecanismos de retenção, confirmação de publicação, quarentena e exclusão não estão implementados.
-- `pyproject.toml` declara `0.1.0`, enquanto a proposta de tag é `v0.1.0-alpha.1`; alinhar somente após decisão técnica.
-- O primeiro commit e a tag ainda não foram criados; o staging permanece sujeito à revisão.
+- `pyproject.toml` declara `0.1.0a1` (PEP 440).
+- A consulta local encontrou a tag anotada `v0.1.0-alpha.1`, apontando para `107f9b0`. Isso contradiz a informação anterior de que a tag não havia sido criada; sua origem/data de criação não foram determinadas nesta atualização.
+- Nenhum push foi realizado, conforme o estado informado; o remote não foi consultado novamente nesta atualização.
 
 ## Bloqueios
 
@@ -60,4 +61,8 @@
 
 ## Próxima etapa autorizada
 
-**ETAPA_01 não autorizada.** A próxima ação pendente é a aprovação do staging e da proposta de versão/mensagem; não criar commit/tag.
+**ETAPA_01 não autorizada.** Não executar novas operações de versionamento ou remotas sem autorização.
+
+## Contexto histórico do primeiro versionamento
+
+Os registros anteriores desta etapa descrevem corretamente o estado pré-commit: 34 arquivos staged, aprovação pendente, versão do pacote ainda em correção e tag proposta sem criação confirmada. Esse estado foi superado pelo commit local `107f9b0`; a consulta atual encontrou a tag local apontando para ele. Os registros históricos foram preservados nos relatórios e no log.

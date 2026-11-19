@@ -57,3 +57,21 @@ Nenhum commit, push, tag ou alteração remota foi realizado.
 ## Resultado
 
 Staging preparado para revisão técnica: 34 arquivos, versão do pacote corrigida para `0.1.0a1`, verificação de whitespace aprovada e diff final revisado. A tag proposta continua `v0.1.0-alpha.1`. Nenhum commit, push ou tag foi criado. Não iniciar a ETAPA_01.
+
+## Resultado efetivo pós-aprovação — 2026-11-19
+
+Esta seção registra o estado posterior e não altera as evidências históricas acima, que descrevem a revisão pré-commit.
+
+- **Commit local:** `107f9b0c166c8626f73d56ea758acadac961f481`.
+- **Mensagem:** `chore: establish project scaffold and governance`.
+- **Branch:** `main`.
+- **Arquivos registrados:** 34. `git show --format= --name-only 107f9b0` confirmou os caminhos da lista incluída neste relatório.
+- **Versão do pacote:** `0.1.0a1` (PEP 440).
+- **Working tree após o commit:** limpa (`git status --short --branch` mostrou `## main` antes desta atualização documental).
+- **Push:** não realizado, conforme contexto confirmado; nenhuma operação remota foi feita nesta atualização.
+- **Tag local:** `git tag --list v0.1.0-alpha.1` encontrou a tag anotada `v0.1.0-alpha.1`; `git show -s --format=%H v0.1.0-alpha.1` resolveu para o commit `107f9b0c166c8626f73d56ea758acadac961f481`. Isso diverge do registro/contexto prévio de que a tag ainda não havia sido criada. Não foi criada, alterada ou removida nesta atualização; sua origem não foi determinada.
+- **ETAPA_01:** não iniciada nem autorizada.
+
+### Estado atual da revisão
+
+O primeiro commit local está concluído. A preparação staged descrita anteriormente é histórica e não representa o estado Git atual. Esta atualização modifica apenas documentação; não criar commit, push ou tag.
