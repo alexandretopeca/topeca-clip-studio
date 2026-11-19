@@ -107,3 +107,19 @@ O remote não foi consultado novamente nesta atualização. A origem/data de cri
 | Revisão do diff completo | Aprovado | `git --no-pager diff` foi exibido integralmente e revisado; alterações limitadas aos registros da ETAPA_00. |
 
 O status observado após as alterações permaneceu na branch `main`; os cinco documentos estavam modificados e não staged. Nenhuma operação de commit, push ou tag foi executada.
+
+## Publicação inicial no GitHub — 2026-11-19
+
+| Verificação | Resultado | Evidência |
+|---|---|---|
+| Estado local pré-push | Aprovado | `git status --short --branch` mostrou `## main`; `git status --porcelain` vazio. |
+| Histórico local | Aprovado | `git log -2 --oneline` confirmou os commits `75ea0e6` e `107f9b0`. |
+| Remote oficial | Aprovado | `git remote -v` apontou fetch/push para `https://github.com/alexandretopeca/topeca-clip-studio.git`. |
+| Remote pré-push | Aprovado | `git ls-remote origin` terminou com código `0` e sem refs; nenhum histórico remoto conflitante. |
+| Branch publicada | Aprovado | `git push -u origin main` criou `main`; saída: `[new branch] main -> main`. |
+| Tag publicada | Aprovado | `git push origin v0.1.0-alpha.1` publicou a tag existente; saída: `[new tag] v0.1.0-alpha.1 -> v0.1.0-alpha.1`. |
+| Refs remotos pós-push | Aprovado | `git ls-remote origin` retornou `HEAD` e `refs/heads/main` em `75ea0e68fe2c0224c4b4eb3022b5118c4422c9e4`, ref da tag em `e0f2c6715d815d59c2f1e7972309d36b8d0b294d` e tag peeled em `107f9b0c166c8626f73d56ea758acadac961f481`. |
+| Working tree após publicação | Aprovado | `git status --short --branch` reportou `## main...origin/main`; `git status --porcelain` vazio imediatamente após os pushes. |
+| Ancestralidade | Aprovado | `git merge-base --is-ancestor 107f9b0c166c8626f73d56ea758acadac961f481 HEAD` terminou com código `0`. |
+
+Nenhum commit ou tag foi criado/modificado durante a publicação; a tag local existente foi apenas enviada ao remote. Nenhum teste funcional foi executado, pois a atividade foi de publicação/documentação. As atualizações documentais registradas após a confirmação remota são locais e não commitadas; por isso, o working tree deixa de estar limpo após essas alterações, embora estivesse limpo imediatamente após o push.

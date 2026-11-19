@@ -75,3 +75,49 @@ Esta seção registra o estado posterior e não altera as evidências histórica
 ### Estado atual da revisão
 
 O primeiro commit local está concluído. A preparação staged descrita anteriormente é histórica e não representa o estado Git atual. Esta atualização modifica apenas documentação; não criar commit, push ou tag.
+
+## Publicação inicial no GitHub — 2026-11-19
+
+### Verificações anteriores ao push
+
+| Comando/verificação | Resultado | Evidência |
+|---|---|---|
+| `git status --short --branch` | Aprovado | `## main`; working tree limpa. |
+| `git log -2 --oneline` | Aprovado | `75ea0e6 docs: record ETAPA_00 post-commit review`; `107f9b0 chore: establish project scaffold and governance`. |
+| `git remote -v` | Aprovado | `origin` fetch e push apontam para `https://github.com/alexandretopeca/topeca-clip-studio.git`. |
+| `git show-ref --tags` | Aprovado | `e0f2c6715d815d59c2f1e7972309d36b8d0b294d refs/tags/v0.1.0-alpha.1`. |
+| `git rev-parse 'v0.1.0-alpha.1^{commit}'` | Aprovado | A tag resolve para `107f9b0c166c8626f73d56ea758acadac961f481`. |
+| `git merge-base --is-ancestor 107f9b0c166c8626f73d56ea758acadac961f481 HEAD` | Aprovado | Código de saída `0`; o primeiro commit é ancestral do segundo. |
+| `git ls-remote origin` | Aprovado | Código de saída `0`, sem refs remotas antes da publicação; nenhum histórico conflitante. |
+
+### Push autorizado e resultado
+
+Com as verificações aprovadas, foram executados:
+
+```text
+git push -u origin main
+To https://github.com/alexandretopeca/topeca-clip-studio.git
+ * [new branch]      main -> main
+branch 'main' set up to track 'origin/main'.
+
+git push origin v0.1.0-alpha.1
+To https://github.com/alexandretopeca/topeca-clip-studio.git
+ * [new tag]         v0.1.0-alpha.1 -> v0.1.0-alpha.1
+```
+
+### Verificações após o push
+
+`git ls-remote origin` confirmou:
+
+```text
+75ea0e68fe2c0224c4b4eb3022b5118c4422c9e4	HEAD
+75ea0e68fe2c0224c4b4eb3022b5118c4422c9e4	refs/heads/main
+e0f2c6715d815d59c2f1e7972309d36b8d0b294d	refs/tags/v0.1.0-alpha.1
+107f9b0c166c8626f73d56ea758acadac961f481	refs/tags/v0.1.0-alpha.1^{}
+```
+
+- `git status --short --branch`: `## main...origin/main`; `git status --porcelain` vazio imediatamente após os pushes.
+- `git log -2 --oneline` confirmou os dois commits esperados na ordem local.
+- `git rev-parse 'v0.1.0-alpha.1^{commit}'` confirmou o alvo `107f9b0c166c8626f73d56ea758acadac961f481`.
+- A tag existente não foi criada, recriada ou modificada; apenas publicada. Nenhum commit foi criado durante esta atividade.
+- A atualização deste relatório e do status ocorreu após a confirmação remota; esses registros posteriores permanecem como alterações documentais locais, sem novo commit.

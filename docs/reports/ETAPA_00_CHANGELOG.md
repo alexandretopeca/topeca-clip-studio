@@ -138,3 +138,12 @@ Foram atualizados por acréscimo, sem apagar o histórico anterior:
 - **Push e dependências:** nenhum push nesta atualização; nenhuma dependência instalada.
 - **Arquivos documentais atualizados:** `docs/PROJECT_STATUS.md`, `docs/reports/ETAPA_00_GIT_RELEASE_REVIEW.md`, `docs/reports/ETAPA_00_CHANGELOG.md`, `docs/reports/ETAPA_00_VALIDATION_REPORT.md` e `docs/logs/ETAPA_00_EXECUTION_LOG.md`.
 - **Impacto:** somente documentação e rastreabilidade; nenhum código, dependência ou configuração de ambiente alterado. A ETAPA_01 permanece não iniciada.
+
+## Publicação inicial no GitHub — 2026-11-19
+
+- **Ação autorizada:** `git push -u origin main` e `git push origin v0.1.0-alpha.1`.
+- **Resultado confirmado:** `origin/main` aponta para `75ea0e68fe2c0224c4b4eb3022b5118c4422c9e4`; a tag anotada remota `v0.1.0-alpha.1` aponta para `107f9b0c166c8626f73d56ea758acadac961f481`.
+- **Verificação remota:** antes dos pushes, `git ls-remote origin` não retornou refs; após, listou `HEAD`/`refs/heads/main`, a ref da tag e sua ref peeled para o commit inicial. Não havia histórico remoto conflitante.
+- **Estado de trabalho:** imediatamente após os pushes, `git status --short --branch` reportou `## main...origin/main` e `git status --porcelain` não retornou arquivos.
+- **Documentos atualizados após a confirmação:** `docs/PROJECT_STATUS.md`, `docs/reports/ETAPA_00_GIT_RELEASE_REVIEW.md`, `docs/reports/ETAPA_00_CHANGELOG.md`, `docs/reports/ETAPA_00_VALIDATION_REPORT.md` e `docs/logs/ETAPA_00_EXECUTION_LOG.md`.
+- **Restrições respeitadas:** nenhum commit criado; tag não modificada; nenhuma dependência instalada; ETAPA_01 não iniciada. Os registros pós-publicação são alterações locais não commitadas.

@@ -276,3 +276,19 @@ Registro cronológico da validação inicial do ambiente. Horários locais do si
 - **Resultado observado:** `git diff --check` terminou com código `0`; `git status --short --branch` mostrou a branch `main` e os cinco documentos modificados; `git diff --name-only` confirmou o mesmo escopo. O diff completo foi exibido e revisado.
 - **Erros/advertências:** nenhuma falha de validação; permanece registrada a divergência da tag local.
 - **Decisão:** encerrar a atualização documental sem commit, push, alteração de tag ou início da ETAPA_01; aguardar aprovação.
+
+## Publicação inicial no GitHub — 2026-11-19
+
+### 19:14 — Verificação prévia, publicação e confirmação remota
+
+- **Atividade:** verificar o estado local e o remote oficial; publicar a branch `main` e a tag aprovada; validar os refs remotos.
+- **Comandos pré-push:** `git status --short --branch`; `git log -2 --oneline`; `git remote -v`; `git show-ref --tags`; `git ls-remote origin`; `git rev-parse 'v0.1.0-alpha.1^{commit}'`; `git merge-base --is-ancestor 107f9b0c166c8626f73d56ea758acadac961f481 HEAD`.
+- **Resultado pré-push:** working tree limpa na branch `main`; dois commits esperados presentes; `origin` apontava ao repositório oficial; tag anotada existente resolvia para o primeiro commit; `git ls-remote origin` terminou com código `0` e sem refs.
+- **Comandos de publicação:** `git push -u origin main`; `git push origin v0.1.0-alpha.1`.
+- **Resultado dos pushes:** ambos terminaram com código `0`; a saída confirmou criação remota de `main` e da tag. Nenhuma tag foi criada ou modificada localmente.
+- **Comandos pós-push:** `git ls-remote origin`; `git status --short --branch`; `git log -2 --oneline`; `git rev-parse 'v0.1.0-alpha.1^{commit}'`; `git merge-base --is-ancestor 107f9b0c166c8626f73d56ea758acadac961f481 HEAD`; `git status --porcelain`.
+- **Evidência remota:** `main` e `HEAD` apontam para `75ea0e68fe2c0224c4b4eb3022b5118c4422c9e4`; a tag remota resolve para `107f9b0c166c8626f73d56ea758acadac961f481`. O status imediatamente após o push foi `## main...origin/main` e `git status --porcelain` vazio; a ancestralidade foi confirmada com código `0`.
+- **Arquivos criados:** nenhum.
+- **Arquivos modificados após a confirmação:** `docs/PROJECT_STATUS.md`, `docs/reports/ETAPA_00_GIT_RELEASE_REVIEW.md`, `docs/reports/ETAPA_00_CHANGELOG.md`, `docs/reports/ETAPA_00_VALIDATION_REPORT.md` e este log; atualizações documentais locais, sem novo commit.
+- **Erros/advertências:** nenhuma falha de publicação; remoto inicialmente sem refs, sem conflitos. Nenhum teste funcional foi executado.
+- **Decisão:** encerrar a publicação inicial da ETAPA_00; manter a ETAPA_01 não autorizada e aguardar revisão dos registros.
